@@ -7,17 +7,26 @@
     <title>New User</title>
 </head>
 <body>
+    <h1>Welcome to Gym Buddy!</h1>
+    <h3>Let's set-up your profile.</h3>
     <form method="post" action="/buddy">
-        <label for="firstName">First Name</label>
+        <label for="firstName"></label>
         <input type="name" name="firstName" placeholder="First Name" value="">
-        <label for="firstName">First Name</label>
-        <input type="name" name="firstName" placeholder="First Name" value="">
-        <label for="firstName">First Name</label>
-        <input type="name" name="firstName" placeholder="First Name" value="">
+        <label for="lastName"></label>
+        <input type="name" name="lastName" placeholder="Last Name" value="">
+        <label for="email"></label>
+        <input type="email" name="email" placeholder="Email" value="">
+        <label for="phoneNumber"></label>
+        <input type="phoneNumber" name="phoneNumber" placeholder="Phone Number" value="">
         <select name="activity">
-            <option value="">Select your favorite:</option>
+            <option value="">Which fitness activity would you like to find a buddy for?</option>
             <option value="strengthTraining">Strength Training</option>
             <option value="hiit">HIIT</option>
+            <option value="yoga">Yoga</option>
+            <option value="dance">Dance</option>
+            <option value="crossfit">Crossfit</option>
+            <option value="kickboxing">Kickboxing</option>
+            <option value="undecided">I'm open!</option>
         </select>
         
         

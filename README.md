@@ -1,5 +1,5 @@
 # GymBuddy
-Web App to help gym enthusiasts find workout buddy's!
+Web App to help gym enthusiasts find a workout buddy!
 
 # Your project idea
 Build a web app to connect people who are looking for a workout buddy, where users can select activities they are interested in and attend activity with other users. User can create and edit profile. Select + delete workouts and see their upcoming schedule.
