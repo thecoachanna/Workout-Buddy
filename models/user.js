@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
     googleId: String,
     phoneNumber: String,
     activity: String,
+    upcomingEvents: [String]
 })
 
 const User = mongoose.model('User', UserSchema);

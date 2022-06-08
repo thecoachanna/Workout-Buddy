@@ -9,6 +9,7 @@ const User = require('./models/user');
 const buddyRoutes = require('./routes/buddyRoutes.js')
 
 
+require('dotenv').config()
 // Require DB connection - within connection file
 require('./db/connection.js')
 

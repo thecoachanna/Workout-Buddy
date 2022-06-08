@@ -1,12 +1,12 @@
 // Bring in model/connection
 const User = require('../models/user');
 
-// NEW
+// NEW User
 const newUser = (req, res) => {
     res.render('newUser')
 }
 
-// CREATE
+// CREATE User
 const createUser = (req, res) => {
     User.create(req.body, (err) => {
         if(err) {
@@ -18,7 +18,21 @@ const createUser = (req, res) => {
     })
 }
 
+// SHOW User
+const showUser = (req, res) => {
+    User.findById(req.params.id, (err, user) => {
+        if(err) {
+            res.status(400).json(err)
+            // JSON converts error to a language I can understand
+            return
+        }
+    res.render('userProfile', user)
+  
+  })
+}
+
 module.exports = {
     newUser,
     createUser,
+    showUser,
 }
