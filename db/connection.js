@@ -3,7 +3,7 @@
 const mongoose = require('mongoose')
 
 // connect to database
-mongoose.connect('mongodb://localhost:27017/workoutBuddy', {
+mongoose.connect('mongodb://localhost:27017/workout_Buddy', {
     useNewUrlParser: true
 })
 // process.env.database_url

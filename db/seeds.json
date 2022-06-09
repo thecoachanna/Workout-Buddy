@@ -1,0 +1,18 @@
+[{
+    "workout": "Kickboxing",
+    "location": "Vesta",
+    "address": "205 Memorial Drive",
+    "date": "June 11",
+    "time": "7:30 pm",
+    "description": "Kickboxing at Vesta. Beginner class. 20 person max."
+},
+{
+    "workout": "Open Gym",
+    
+    "location": "LA Fitness",
+    "address": "134 Paces Ferry Dr",
+    "date": "June 18",
+    "time": "7:30 pm",
+    "description": "Looking for a buddy to hit leg day with!"
+}]
+

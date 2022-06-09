@@ -14,7 +14,7 @@ const createUser = (req, res) => {
             // JSON converts error to a language I can understand
             return
         }
-        res.redirect('/buddy')
+        res.redirect('/workout_buddy')
     })
 }
 
@@ -26,7 +26,7 @@ const showUser = (req, res) => {
             // JSON converts error to a language I can understand
             return
         }
-    res.render('userProfile', user)
+    res.render('userProfile',{user} )
   
   })
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Workout Index</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-4">Workouts</h1>
+      <a href="/events/new" class="btn btn-success">New Event</a>
+
+      <% events.forEach(event => { %>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title"><%= event.workout %></h4>
+            <div class="">
+                <%= event.location %>
+                <div class="">
+                    <%= event.address %>
+                    <div class="">
+                        <%= event.date %>
+                        <div class="">
+                            <%= event.time %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-text mb-2"><%= event.description %></div>
+      </div>
+
+      <% }) %>
+    </div>
+  </body>
+</html>

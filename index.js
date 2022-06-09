@@ -2,11 +2,10 @@ const express = require('express')
 const app = express()
 const PORT = 3000
 const path = require('path');
-const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 
-const User = require('./models/user');
 const buddyRoutes = require('./routes/buddyRoutes.js')
+const eventRoutes = require('./routes/eventRoutes.js')
 
 
 require('dotenv').config()
@@ -23,7 +22,10 @@ app.use(methodOverride('_method'))
 
 
 // Attaching routes
+app.use('/events', eventRoutes)
 app.use('/buddy', buddyRoutes)
+
+
 
 
 app.listen(PORT, ()=>{
