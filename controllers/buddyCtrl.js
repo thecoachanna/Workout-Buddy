@@ -9,10 +9,8 @@ const newUserForm = (req, res) => {
 // CREATE - New User
 const saveNewUser = (req, res) => {
   console.log(req.body);
-  User.create(req.body).then(() => {
-    User.find({}).then(() => {
-      res.redirect("/");
-    });
+  User.create(req.body).then((user) => {
+    res.render("user/userProfile", { user });
   });
 };
 

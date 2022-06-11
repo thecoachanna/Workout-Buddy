@@ -4,33 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>New User</title>
 </head>
 <body>
     <h1>Welcome to Workout Buddy!</h1>
     <h3>Let's set-up your profile.</h3>
     <form method="post" action="/buddy">
+        <div class="mb-3">
         <label for="firstName"></label>
         <input type="name" name="firstName" placeholder="First Name" value="">
+    </div>
+    <div class="mb-3">
         <label for="lastName"></label>
         <input type="name" name="lastName" placeholder="Last Name" value="">
+    </div>
+    <div class="mb-3">
         <label for="email"></label>
         <input type="email" name="email" placeholder="Email" value="">
+    </div>
+    <div class="mb-3">
         <label for="phoneNumber"></label>
         <input type="phoneNumber" name="phoneNumber" placeholder="Phone Number" value="">
-        <select name="activity">
-            <option value="">Which fitness activity would you like to find a buddy for?</option>
-            <option value="strengthTraining">Strength Training</option>
-            <option value="hiit">HIIT</option>
-            <option value="yoga">Yoga</option>
-            <option value="dance">Dance</option>
-            <option value="crossfit">Crossfit</option>
-            <option value="kickboxing">Kickboxing</option>
-            <option value="undecided">I'm open!</option>
-        </select>
+    </div>        
         
-        
-        <input type="submit" value="Submit">
+    <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </body>
 </html>
