@@ -8,9 +8,34 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title><%= user.firstName %>></title>
 </head>
+<%- include('../partials/header') %>
 <body>
     <h1><%= user.firstName %></h1>
-    
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Workout</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Update Button</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Kickboxing</th>
+            <td>June 11</td>
+            <td>7:30 pm</td>
+            <td>Cancel/Chat</td>
+          </tr>
+          <tr>
+            <th scope="row">Open Gym</th>
+            <td>June 18</td>
+            <td>7:30 pm</td>
+            <td>Cancel/Chat</td>
+          </tr>
+          
+        </tbody>
+      </table>
     
 </body>
 </html>

@@ -26,8 +26,37 @@ const showUserProfile = (req, res) => {
   });
 };
 
+// GET - Onboard Page
+const onboardUser = (req, res) => {
+  res.render("user/onboard");
+}
+
+// GET - Login Page
+const loginUser = (req, res) => {
+  res.render("user/login");
+}
+
+// POST - Login
+const submitLogin = (req, res) => {
+  console.log(req.body)
+  User.find({username: req.body.username}, (err, user) => {
+    console.log(err, user)
+if (user[0].password === req.body.password) {
+  res.render('user/userprofile', { user: user[0] });
+} else {
+  res.render('user/login', {error: 'Invalid Login'})
+}
+  })
+}
+
+
+
+
 module.exports = {
   newUserForm,
   saveNewUser,
   showUserProfile,
+  onboardUser,
+  loginUser,
+  submitLogin
 };
