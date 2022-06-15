@@ -33,9 +33,31 @@ let showEvent = (req, res) => {
     })
 }
 
+const createEventComment = (req, res) => {
+  
+  Event.findById(req.params.id, (err, event) => {
+    event.comments.push(req.body);
+    event.save(function(err) {
+      res.redirect(`/events/${event._id}`);
+    });
+  });
+}
+
+const deleteEventComment = (req, res) => {
+  Event.findByIdAndDelete(req.params.id, (err, event) => {
+    if (err) {
+      res.status(400).json(err);
+      return;
+    }
+    res.json({message: 'Comment Deleted'})
+  })
+}
+
 module.exports = {
   newEventForm,
   saveNewEvent,
   getAllEvents,
-  showEvent
+  showEvent,
+  createEventComment,
+  deleteEventComment
 };

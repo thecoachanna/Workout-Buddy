@@ -1,5 +1,12 @@
 const mongoose = require("mongoose");
 
+const commentSchema = new mongoose.Schema({
+    content: String,
+    username: String,
+},
+{
+    timestamps: true
+})
 
 const eventSchema = new mongoose.Schema({
     workout: {
@@ -26,6 +33,7 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    comments: [commentSchema]
     // owner: {
         // Reference another MONGODB model
     //     type: mongoose.Schema.Types.ObjectId,

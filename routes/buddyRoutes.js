@@ -15,6 +15,9 @@ router.get('/login', buddyCtrl.loginUser)
 
 router.post('/login', buddyCtrl.submitLogin)
 
+// UPDATE
+router.put('/:id', buddyCtrl.updateProfile)
+
 // SHOW
 router.get('/:id', buddyCtrl.showUserProfile)
 

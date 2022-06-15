@@ -14,6 +14,11 @@ router.post('/', eventCtrl.saveNewEvent)
 // SHOW
 router.get('/:id', eventCtrl.showEvent)
 
+// CREATE - Comment
+router.post('/:id', eventCtrl.createEventComment)
+
+// DELETE - Comment
+router.delete('/:id', eventCtrl.deleteEventComment)
 
 module.exports = router
 

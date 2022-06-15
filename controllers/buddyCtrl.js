@@ -26,6 +26,29 @@ const showUserProfile = (req, res) => {
   });
 };
 
+// EDIT - User Profile
+const editUserProfile = (req, res) => {
+  User.findById(req.params.id, (err, user) => {
+    if (err) {
+      res.status(400).json(err);
+      return;
+    }
+    res.render("user/editProfile", { user });
+  });
+}
+
+// UPDATE - User Profile
+const updateProfile = (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body,
+    { new: true }, (err, user) => {
+      if (err) {
+        res.status(400).json(err)
+        return
+      }
+      res.json(bm)
+    })
+}
+
 // GET - Onboard Page
 const onboardUser = (req, res) => {
   res.render("user/onboard");
@@ -58,5 +81,7 @@ module.exports = {
   showUserProfile,
   onboardUser,
   loginUser,
-  submitLogin
+  submitLogin,
+  updateProfile,
+  editUserProfile
 };
