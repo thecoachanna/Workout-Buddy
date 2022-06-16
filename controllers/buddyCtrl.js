@@ -35,45 +35,51 @@ const editUserProfile = (req, res) => {
     }
     res.render("user/editProfile", { user });
   });
-}
+};
 
 // UPDATE - User Profile
 const updateProfile = (req, res) => {
-  User.findByIdAndUpdate(req.params.id, req.body,
-    { new: true }, (err, user) => {
+  User.findByIdAndUpdate(req.params.id, req.body, { new: true },
+    (err, user) => {
       if (err) {
-        res.status(400).json(err)
-        return
+        res.status(400).json(err);
+        return;
       }
-      res.json(bm)
-    })
-}
+      res.redirect(`/buddy/${ user.username }`)
+    }
+  );
+};
 
 // GET - Onboard Page
 const onboardUser = (req, res) => {
   res.render("user/onboard");
-}
+};
 
 // GET - Login Page
 const loginUser = (req, res) => {
   res.render("user/login");
-}
+};
 
 // POST - Login
 const submitLogin = (req, res) => {
-  console.log(req.body)
-  User.find({username: req.body.username}, (err, user) => {
-    console.log(err, user)
-if (user[0].password === req.body.password) {
-  res.render('user/userprofile', { user: user[0] });
-} else {
-  res.render('user/login', {error: 'Invalid Login'})
-}
-  })
-}
+  req.session.username = req.body.username;
+  console.log(req.session);
+  User.find({ username: req.body.username }, (err, user) => {
+    console.log(err, user);
+    if (user[0].password === req.body.password) {
+      res.render("user/userprofile", { user: user[0] });
+    } else {
+      res.render("user/login", { error: "Invalid Login" });
+    }
+  });
+};
 
-
-
+const displayProfile = (req, res) => {
+  User.find({ username: req.session.username }, (err, user) => {
+    if (err) return err;
+    res.render("user/userprofile", { user: user[0] });
+  });
+};
 
 module.exports = {
   newUserForm,
@@ -83,5 +89,6 @@ module.exports = {
   loginUser,
   submitLogin,
   updateProfile,
-  editUserProfile
+  editUserProfile,
+  displayProfile,
 };

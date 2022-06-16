@@ -9,6 +9,10 @@ const commentSchema = new mongoose.Schema({
 })
 
 const eventSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+    },
     workout: {
         type: String,
         required: true,

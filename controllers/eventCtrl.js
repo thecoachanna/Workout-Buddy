@@ -1,4 +1,5 @@
 // Bring in model/connection
+const { response } = require("express");
 const Event = require("../models/event");
 
 // INDEX = Get all Events
@@ -6,7 +7,8 @@ const getAllEvents = (req, res) => {
   Event.find({})
     // .populate("owner")
     .then((events) => {
-      res.render("event/index", { events });
+      console.log("coming from get all events", req.user, res.locals)
+      res.render("event/index", { events, user: res.locals });
     });
 };
 
