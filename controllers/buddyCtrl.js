@@ -75,10 +75,27 @@ const submitLogin = (req, res) => {
 };
 
 const displayProfile = (req, res) => {
-  User.find({ username: req.session.username }, (err, user) => {
+  User.find({ username: req.session.username }).populate('upcomingEvents').exec( (err, user) => {
     if (err) return err;
+    console.log(user)
     res.render("user/userprofile", { user: user[0] });
   });
+};
+
+// UPDATE - Add Event to Profile
+const addEventToProfile = (req, res) => {
+  console.log(req.body)
+  User.findOneAndUpdate({username: req.params.id}, {$push:{upcomingEvents:req.body.eventId}}, { new: true },
+    (err, user) => {
+      if (err) {
+        res.status(400).json(err);
+        return;
+      }
+      console.log(user, req.body)
+      console.log('this is the body', req.body)
+      res.redirect(`/buddy/${ user.username }`)
+    }
+  );
 };
 
 module.exports = {
@@ -91,4 +108,5 @@ module.exports = {
   updateProfile,
   editUserProfile,
   displayProfile,
+  addEventToProfile
 };

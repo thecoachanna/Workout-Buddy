@@ -8,6 +8,7 @@ const buddyRoutes = require('./routes/buddyRoutes.js')
 const eventRoutes = require('./routes/eventRoutes.js')
 
 
+
 require('dotenv').config()
 // Require DB connection - within connection file
 require('./db/connection.js')

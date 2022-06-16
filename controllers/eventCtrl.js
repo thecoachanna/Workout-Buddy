@@ -7,14 +7,14 @@ const getAllEvents = (req, res) => {
   Event.find({})
     // .populate("owner")
     .then((events) => {
-      console.log("coming from get all events", req.user, res.locals)
+      
       res.render("event/index", { events, user: res.locals });
     });
 };
 
 // NEW - Event form
 const newEventForm = (req, res) => {
-  res.render("event/new");
+  res.render("event/new", {user: res.locals});
 };
 
 // CREATE - New Event
@@ -30,8 +30,8 @@ const saveNewEvent = (req, res) => {
 // SHOW - Event Details
 let showEvent = (req, res) => {
     Event.findById(req.params.id, (err, event) =>{
-        console.log(event)
-               res.render("event/show", { event })
+        
+               res.render("event/show", { event, user: res.locals })
     })
 }
 

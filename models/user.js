@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     lastName: String,
     email: String,
     phoneNumber: String,
-    upcomingEvents: [String]
+    upcomingEvents: [{ref: "Event", type: mongoose.SchemaTypes.ObjectId}]
 })
 
 const User = mongoose.model('User', userSchema);
