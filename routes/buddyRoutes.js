@@ -24,6 +24,8 @@ router.get('/:username', buddyCtrl.displayProfile)
 // EDIT - Profile
 router.get('/:id/edit', buddyCtrl.editUserProfile)
 
+router.get('/:eventId/remove', buddyCtrl.deleteEventFromProfile)
+
 // UPDATE - Add events to Profile
 router.put('/events/:id', buddyCtrl.addEventToProfile)
 

@@ -65,9 +65,9 @@ const submitLogin = (req, res) => {
   req.session.username = req.body.username;
   console.log(req.session);
   User.find({ username: req.body.username }, (err, user) => {
-    console.log(err, user);
+    console.log(req.body, user[0].password);
     if (user[0].password === req.body.password) {
-      res.render("user/userprofile", { user: user[0] });
+      res.redirect(`/buddy/${user[0].username}`)
     } else {
       res.render("user/login", { error: "Invalid Login" });
     }
@@ -98,6 +98,22 @@ const addEventToProfile = (req, res) => {
   );
 };
 
+const deleteEventFromProfile = (req, res) => {
+  const eventId = req.params.eventId;
+  const username = req.session.username
+  console.log(eventId, username)
+  User.findOneAndUpdate({ username }, {$pull:{upcomingEvents: eventId}}, { new: true },
+    (err, user) => {
+      if (err) {
+        res.status(400).json(err);
+        return;
+      }
+     
+      res.redirect(`/buddy/${ username }`)
+    }
+  );
+}
+
 module.exports = {
   newUserForm,
   saveNewUser,
@@ -108,5 +124,6 @@ module.exports = {
   updateProfile,
   editUserProfile,
   displayProfile,
-  addEventToProfile
+  addEventToProfile,
+  deleteEventFromProfile
 };
