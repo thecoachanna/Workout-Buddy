@@ -4,13 +4,15 @@
     <%- include('../partials/head') %>
     <title>Onboard Page</title>
 </head>
-<body>
-    <h2>
-        Welcome to Workout Buddy!
-    </h2>
-    <a href="/buddy/login" >Log in</a>
-    <a href="/buddy/new" >Sign-up</a>
-
-    
+<body class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <main role="main" class="inner cover">
+        <h2 class="cover-heading">Welcome to Workout Buddy!</h2>
+        <p class="lead">A place to sweat and socialize.</p>
+        <p class="lead">
+            <a href="/buddy/login" class="btn btn-md btn-secondary">Log in</a>
+            <a href="/buddy/new" class="btn btn-md btn-secondary">Sign-up</a>
+        </p>
+    </div>    
 </body>
 </html>

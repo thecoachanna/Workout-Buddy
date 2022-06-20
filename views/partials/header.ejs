@@ -1,21 +1,21 @@
-
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            
-            <img src="/stylesheets/images/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            Workout Buddy
-          </a>
-          <ul class="nav justify-content-end">
-            
-            <li class="nav-item">
-              <a class="nav-link"  href="/events">Main</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="/buddy/<%= user.username %>">Profile</a>
-            </li>
-            
-          </ul>
-        </div>
-        
-      </nav>
+<nav class="navbar navbar-light mb-3" style="background-color: #014c78">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="/stylesheets/images/logoblue.png"
+        alt=""
+        width="30"
+        height="30"
+        class="d-inline-block align-text-center"
+      /><b>Workout Buddy</b>
+    </a>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="/events"><b>Workouts</b></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/buddy/<%= user.username %>"><b>Profile</b></a>
+      </li>
+    </ul>
+  </div>
+</nav>

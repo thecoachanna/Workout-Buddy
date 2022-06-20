@@ -5,14 +5,10 @@
     <title>Workout Event</title>
   </head>
 
-  <body>
+  <body class="text-center">
     <%- include('../partials/header') %>
-    <div class="card" style="width: 18rem">
-      <img
-        src="/stylesheets/images/bopo1.png"
-        class="card-img-top"
-        alt="..."
-      />
+    <div class="card" style="width: 20rem">
+      <img src="/stylesheets/images/bopo1.png" class="card-img-top" alt="..." />
       <div class="card-body text-center">
         <h5 class="card-title"><%= event.workout.toUpperCase() %></h5>
         <p class="card-text"><%= event.description %></p>
@@ -28,52 +24,46 @@
           action="/buddy/events/<%= user.username %>?_method=PUT"
           method="POST"
         >
-          <button type="submit" class="card-link">Buddy up!</button>
+          <button type="submit" class="btn btn-secondary">Buddy up!</button>
           <input type="hidden" name="eventId" value="<%= event._id %>" />
         </form>
       </div>
-      <div class="card-body text-center"></div>
-    </div>
-
-    <br />
-    <br />
-
-    <h3>Leave a comment here:</h3>
-    <form id="add-review-form" method="POST" action="/events/<%= event._id %>">
-      <label></label>
-      <textarea name="content"></textarea>
-      <!-- need to be able to access username for value -->
-      <input type="hidden" name="username" value="Anna" />
-      <input type="submit" value="Post" />
-    </form>
-    <% if (event.comments.length> 0) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Username</th>
-          <th>Comment</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% event.comments.forEach(function(c) { %>
-        <tr>
-          <td><%= c.username %></td>
-          <td><%= c.content %></td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
-    <% } else { %> <% } %>
+      <div class="card-body text-center">
+        <h4>Start a chat here:</h4>
+        <form
+          id="add-review-form"
+          method="POST"
+          action="/events/<%= event._id %>"
+        >
+          <label></label>
+          <textarea name="content"></textarea>
+          <!-- need to be able to access username for value -->
+          <input type="hidden" name="username" value="username" />
+          <input type="submit" value="Post" />
+        </form>
+      </div>
+      <div class="card-body">
+        <% if (event.comments.length> 0) { %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Username</th>
+              <th scope="col">Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% event.comments.forEach(function(c) { %>
+            <tr>
+              <td><%= c.date %></td>
+              <td><%= c.username %></td>
+              <td><%= c.content %></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <% } else { %> <% } %>
+      </div>
+    </div>   
   </body>
 </html>
-
-<!-- code to display comments
-<figure class="text-end">
-  <blockquote class="blockquote">
-    <p>A well-known quote, contained in a blockquote element.</p>
-  </blockquote>
-  <figcaption class="blockquote-footer">
-    Someone famous in <cite title="Source Title">Source Title</cite>
-  </figcaption>
-</figure> -->
