@@ -4,10 +4,11 @@
     <%- include('../partials/head') %>
     <title>Workout Event</title>
   </head>
-
-  <body class="text-center">
+  
+  <body>
     <%- include('../partials/header') %>
-    <div class="card" style="width: 20rem">
+    <div class="position-relative">
+    <div class="card position-absolute top-50 start-50" style="width: 20rem">
       <img src="/stylesheets/images/bopo1.png" class="card-img-top" alt="..." />
       <div class="card-body text-center">
         <h5 class="card-title"><%= event.workout.toUpperCase() %></h5>
@@ -64,6 +65,7 @@
         </table>
         <% } else { %> <% } %>
       </div>
-    </div>   
+    </div>  
+  </div> 
   </body>
 </html>

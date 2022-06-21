@@ -1,5 +1,5 @@
 :root {
-    --bs-blue: #0d6efd;
+    --bs-blue: #014C78;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
     --bs-pink: #d63384;
@@ -9,9 +9,9 @@
     --bs-green: #198754;
     --bs-teal: #20c997;
     --bs-cyan: #0dcaf0;
-    --bs-black: red;
+    --bs-black: #014C78;
     --bs-white: #fff;
-    --bs-gray: #6c757d;
+    --bs-gray: #f3f3f3;
     --bs-gray-dark: #343a40;
     --bs-gray-100: #f8f9fa;
     --bs-gray-200: #e9ecef;
@@ -29,7 +29,7 @@
     --bs-warning: #ffc107;
     --bs-danger: #dc3545;
     --bs-light: #f8f9fa;
-    --bs-dark: #212529;
+    --bs-dark: #014C78;
     --bs-primary-rgb: 13, 110, 253;
     --bs-secondary-rgb: 108, 117, 125;
     --bs-success-rgb: 25, 135, 84;
@@ -49,7 +49,7 @@
     --bs-body-font-size: 1rem;
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
-    --bs-body-color: #282828;
+    --bs-body-color: #014C78;
     --bs-body-bg: #f3f3f3;
     --bs-border-width: 1px;
     --bs-border-style: solid;
@@ -69,12 +69,14 @@
     --jumbotron-padding-y: 3rem;
   }
 
+
+
   .nav-item {
-    color: #4FB9B3;
+    color: #00c5d4;
   }
 
   .nav-link {
-    color: #4FB9B3;
+    color: #00c5d4;
   }
 
   .btn.btn-primary {
@@ -90,6 +92,10 @@
 
   .container {
     align-items: center;
+  }
+
+  .card.border-dark {
+    color: #014C78;
   }
 
  
@@ -185,4 +191,12 @@
 
 .jumbotron .container {
   max-width: 40rem;
+}
+
+/* Onboard */
+
+.bg-img {
+ 
+    
+ 
 }

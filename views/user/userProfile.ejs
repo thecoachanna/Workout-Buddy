@@ -6,22 +6,25 @@
   </head>
   <%- include('../partials/header') %>
   <body>
-    <h1><%= user.firstName %> <%= user.lastName %></h1>
-    <ul>
-      <li><%= user.username %></li>
-      <li><%= user.email %></li>
-      <li><%= user.phoneNumber %></li>
-    </ul>
+    <h1 class="text-center"><%= user.firstName %> <%= user.lastName %></h1>
+  
+      
+      <h6 class="text-center">Username: <%= user.username %></h6>
+      <h6 class="text-center">Email: <%= user.email %></h6>
+      <h6 class="text-center mb-4">Phone Number: <%= user.phoneNumber %></h6>
+      
+ 
 
-    <a href="/buddy/<%= user._id %>/edit" class="btn btn-sm btn-primary">Edit Profile</a>
-
-    <table class="table table-striped">
+    <a href="/buddy/<%= user._id %>/edit" class="btn btn-sm btn-primary d-flex justify-content-center mb-3">Edit Profile</a>
+ 
+    <table class="table table-striped text-center">
       <thead>
         <tr>
           <th scope="col">Workout</th>
           <th scope="col">Date</th>
           <th scope="col">Time</th>
           <th scope="col">Connect</th>
+          <th scope="col">Cancel</th>
         </tr>
       </thead>
       <tbody>

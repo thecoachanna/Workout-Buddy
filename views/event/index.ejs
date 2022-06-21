@@ -11,9 +11,9 @@
 <body>
     <%- include('../partials/header') %>
     <main role="main">
-        <section class="jumbotron text-center">
+        <section class="jumbotron text-center mb-3">
     <div class="container">
-        <h1 class="jumbotron-heading"><b>Workouts</b></h1>
+        <h1 class="jumbotron-heading"><b>Workout Index</b></h1>
         <p class="lead text-muted">
             Buddy up for a workout below or create your own for others to join!
         </p>
@@ -22,31 +22,45 @@
         </p>
     </section>
 </div>
+
 <div class="album py-5 bg-light">
+    
     <div class="container">
-        <div class="col-md-4">
-        <% events.forEach(event=> { %>
-            <div class="card md-4 box-shadow">
-                <img class="card-img-top" src="/stylesheets/images/bopo1.png" style="height: 225px; width: 100%; display: block;"> 
-                <div class="card-body">
-                    <a href="/events/<%= event._id %>" class="card-title">
+       
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% events.forEach(event=> { %>
+            <div class="col">
+                <div class="card shadow-sm">
+                  
+                  <img class="card-img-top" src="/stylesheets/images/bopo1.png" >
+
+                  <div class="card-body">
+                    <p class="card-text"><a href="/events/<%= event._id %>" class="card-title"><b>
                         <%= event.workout %>
-                    </a>
-
-
-                    <div class="">
-                        <%= event.date %>
+                        </b></a>
+                        <div class="">
+                            <%= event.location %>
+                        </div>
                             <div class="">
-                                <%= event.time %>
-                            </div>
-                    </div>
-                </div>
-            </div>           
+                                    <%= event.date %>
+                                <div class="">
+                                    <%= event.time %>
+                                </div>
 
-         <% }) %>
+                            </div>
+                    </p>
+                    
+                  </div>
+                </div>
+            </div>
+            <% }) %>
         </div>
-        </div>
-        </div>
+        
+    </div>
+ 
+</div>
+
+
 </main>
 </body>
 
