@@ -1,9 +1,10 @@
 // db/connection.js
 // Require Mongoose:
 const mongoose = require('mongoose')
+const dbURI = process.env.DATABASE_URL
 
 // connect to database
-mongoose.connect('mongodb://localhost:27017/workout_Buddy', {
+mongoose.connect(dbURI, {
     useNewUrlParser: true
 })
 // process.env.database_url
