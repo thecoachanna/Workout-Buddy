@@ -33,6 +33,10 @@ app.use(function (req, res, next) {
   });
 
 // Attaching routes
+app.get('/', (req, res) => {
+    res.redirect('/buddy/onboard')
+})
+    
 app.use('/events', eventRoutes)
 app.use('/buddy', buddyRoutes)
 
