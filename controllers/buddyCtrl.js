@@ -65,6 +65,7 @@ const submitLogin = (req, res) => {
   req.session.username = req.body.username;
   console.log(req.session);
   User.find({ username: req.body.username }, (err, user) => {
+    if(err) return err
     console.log(req.body, user[0].password);
     if (user[0].password === req.body.password) {
       res.redirect(`/buddy/${user[0].username}`)
