@@ -63,12 +63,15 @@ const loginUser = (req, res) => {
 // POST - Login
 const submitLogin = (req, res) => {
   req.session.username = req.body.username;
-  console.log(req.session);
+  // console.log(req.session);
   User.find({ username: req.body.username }, (err, user) => {
     if(err) return err
-    console.log(req.body, user[0].password);
+    console.log(user[0].password)
+    console.log(req.body.password)
     if (user[0].password === req.body.password) {
+      console.log(req.body, user[0].password);
       res.redirect(`/buddy/${user[0].username}`)
+      
     } else {
       res.render("user/login", { error: "Invalid Login" });
     }
@@ -78,8 +81,9 @@ const submitLogin = (req, res) => {
 const displayProfile = (req, res) => {
   User.find({ username: req.session.username }).populate('upcomingEvents').exec( (err, user) => {
     if (err) return err;
+    console.log("you've reach displayProfile")
     console.log(user)
-    res.render("user/userprofile", { user: user[0] });
+    res.render("user/userProfile", { user: user[0] });
   });
 };
 
